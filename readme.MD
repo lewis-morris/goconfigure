@@ -2,7 +2,7 @@
 
 Go configure is a simple to use config parser which attempts to preserve data types and comments.
 
-## example config 
+## Example config 
 
 ```ini
 [TEST]
@@ -21,7 +21,7 @@ bool=True
 bool_other=true
 
 ```
-## example usage
+## Example usage
 ```python
 
 from GoConf import GoConfigure
@@ -36,5 +36,8 @@ go.write()
 
 ```
 
-## extra info 
+## Installation
 
+```
+pip install goconfigure
+```
