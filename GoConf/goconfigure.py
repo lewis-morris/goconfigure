@@ -43,6 +43,17 @@ class GoConfigure:
         """
         self._read_fl_into()
 
+    def make_section(self, k, write=False):
+        """
+        Created a new section in the config file
+        :param k: key of new section
+        :param write: Bool - if true writes to file
+        :return:
+        """
+        self._conf_dict[k] = {}
+        if write:
+            self.write()
+
     def _read_fl_into(self):
         """
         Reads the config file into an ordered dict

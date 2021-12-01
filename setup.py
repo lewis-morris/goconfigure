@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='goconfigure',
-    version='0.1',
+    version='0.1.2',
     packages=['GoConf'],
     url='https://github.com/lewis-morris/GoConfigure',
     license='MIT',
