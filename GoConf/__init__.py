@@ -1,0 +1,1 @@
+from .goconfigure import GoConfigure
