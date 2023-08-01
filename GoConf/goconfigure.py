@@ -68,7 +68,7 @@ class GoConfigure:
                 # section
                 section = re.search('[[].*[]]', ln)
                 comment = re.search("[#].*", ln)
-                val = re.search(".*[=].*", ln)
+                val = None if ln.count("=") == 0 else val
                 if section:
                     current_section = section.group(0).replace("[", "").replace("]", "")
                     comment_no = 0
@@ -77,11 +77,11 @@ class GoConfigure:
                     self._conf_dict[current_section][f"comment_{comment_no}"] = comment.group(0).replace("#", "").strip()
                     comment_no += 1
                 elif val:
-                    values = [x.strip() for x in val.group(0).split("=")]
+                    key, value = ln.split("=", 1)
                     try:
-                        self._conf_dict[current_section][values[0]] = ast.literal_eval(values[1])
+                        self._conf_dict[current_section][key] = ast.literal_eval(value)
                     except (ValueError,SyntaxError):
-                        self._conf_dict[current_section][values[0]] = check_bool(values[1])
+                        self._conf_dict[current_section][key] = check_bool(value)
     def __check_section(self, current_section):
         if current_section is None:
             raise Exception("You have not defined a main block. This should appear like [SECTION] ")
