@@ -8,5 +8,5 @@ setup(
     license='MIT',
     author='Lewis Morris',
     author_email='lewis.morris@gmail.com',
-    description='Basic python config parser.'
+    description='Basic python config parser. V0.1.3'
 )
